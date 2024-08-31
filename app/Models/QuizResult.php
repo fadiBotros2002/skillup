@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User_Fav extends Model
+class QuizResult extends Model
 {
     use HasFactory;
 
-    public function favsCourses()
+    public function quizes()
     {
-        return $this->belongsTo(FavCourse::class, 'favCoursesID');
+        return $this->belongsTo(QuizResult::class, 'quizID');
     }
 
     public function users()
     {
         return $this->belongsTo(User::class, 'userID');
     }
-
-
 }

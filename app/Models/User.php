@@ -61,4 +61,31 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Active_User::class, 'activeUserID');
     }
+
+
+    public function certificates()
+    {
+        return $this->hasMany(Certificate::class, 'userID');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'userID');
+    }
+
+    public function users_favs()
+    {
+        return $this->hasMany(User_Fav::class, 'userID');
+    }
+
+
+    public function quiz_results()
+    {
+        return $this->hasMany(QuizResult::class, 'userID');
+    }
+
+
+    public function users_courses()
+    {
+        return $this->hasMany(User_Course::class, 'userID');
+    }
 }
