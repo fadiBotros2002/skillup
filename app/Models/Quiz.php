@@ -12,14 +12,15 @@ class Quiz extends Model
 
     public function certificates()
     {
-        return $this->belongsTo(Certificate::class, 'quizID');
+        return $this->hasOne(Certificate::class, 'quizID');
     }
 
-    
+
 
     public function quizResults()
     {
-        return $this->belongsTo(User::class, 'quizID');
+
+        return $this->belongsToMany(User::class, 'quiz_resluts', 'quizID', 'userID');
     }
 
 
