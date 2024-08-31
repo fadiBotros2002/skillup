@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users_favs', function (Blueprint $table) {
-            $table->bigIncrements('favCoursesID'); //  primary key and auto-increment
+            $table->bigIncrements('userFavID'); //  primary key and auto-increment
             $table->foreignId('userID')->constrained('users', 'userID');
             $table->foreignId('favCoursesID')->constrained('favCourses', 'favCoursesID');
             $table->timestamps(); // created_at and updated_at

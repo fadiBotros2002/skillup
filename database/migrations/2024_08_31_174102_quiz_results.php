@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quiz_results', function (Blueprint $table) {
-            $table->id('resultID');
-            $table->foreignId('userID')->constrained('users');
-            $table->foreignId('quizID')->constrained('quizes');
+            $table->bigIncrements('resultID'); // primary key and auto-increment
+            $table->foreignId('userID')->constrained('users', 'userID');
+            $table->foreignId('quizID')->constrained('quizes', 'quizID');
             $table->integer('score');
             $table->boolean('passed');
             $table->timestamp('completed_at')->useCurrent();

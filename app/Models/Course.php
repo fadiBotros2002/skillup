@@ -17,7 +17,7 @@ class Course extends Model
 
     public function certificates()
     {
-        return $this->belongsTo(Certificate::class, 'courseID');
+        return $this->hasOne(Certificate::class, 'courseID');
     }
 
     public function comments()
@@ -28,12 +28,13 @@ class Course extends Model
 
     public function quizes()
     {
-        return $this->belongsTo(Quiz::class, 'courseID');
+        return $this->hasOne(Quiz::class, 'courseID');
     }
 
-    public function users_courses()
+    public function users()
     {
-        return $this->hasMany(User_Course::class, 'courseID');
+        return $this->belongsToMany(User::class, 'users_courses', 'courseID', 'userID');
+
     }
 
 }

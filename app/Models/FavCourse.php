@@ -9,8 +9,8 @@ class FavCourse extends Model
 {
     use HasFactory;
 
-    public function users_favs()
+    public function users()
     {
-        return $this->hasMany(User_Fav::class, 'favCoursesID');
+        return $this->belongsToMany(User::class, 'users_courses', 'courseID', 'userID');
     }
 }
