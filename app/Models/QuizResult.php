@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class QuizResult extends Model
 {
     use HasFactory;
-
+////////////////////////////////
     public function quizes()
     {
         return $this->belongsTo(QuizResult::class, 'quizID');
