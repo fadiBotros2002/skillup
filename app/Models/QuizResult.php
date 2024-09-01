@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class QuizResult extends Model
 {
     use HasFactory;
-////////////////////////////////
-    public function quizes()
-    {
-        return $this->belongsTo(QuizResult::class, 'quizID');
-    }
 
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'userID');
-    }
+    protected $table = 'quiz_results';
+
+    protected $primaryKey = 'resultID';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'userID',
+        'quizID',
+        'score',
+        'passed',
+        'completed_at'
+    ];
 }

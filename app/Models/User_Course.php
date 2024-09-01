@@ -10,13 +10,14 @@ class User_Course extends Model
     use HasFactory;
 
 
-    public function courses()
-    {
-        return $this->belongsTo(Course::class, 'courseID');
-    }
+    protected $table = 'users_courses';
 
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'userID');
-    }
+    protected $primaryKey = 'users_coursesID';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'userID', 'courseID'
+    ];
+
 }

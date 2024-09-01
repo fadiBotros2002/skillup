@@ -9,6 +9,17 @@ class Quiz extends Model
 {
     use HasFactory;
 
+    protected $table = 'quizes';
+
+    protected $primaryKey = 'quizID';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'title',
+        'courseID'
+    ];
+
 
     public function certificates()
     {
@@ -29,6 +40,4 @@ class Quiz extends Model
     {
         return $this->belongsTo(Course::class, 'courseID');
     }
-
-
 }

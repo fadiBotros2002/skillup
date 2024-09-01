@@ -9,6 +9,18 @@ class Comment extends Model
 {
     use HasFactory;
 
+
+
+     protected $table = 'comments';
+
+     protected $primaryKey = 'commentID';
+
+     public $timestamps = true;
+
+     protected $fillable = [
+         'content', 'userID', 'courseID'
+     ];
+
     public function users()
     {
         return $this->belongsTo(User::class, 'userID');

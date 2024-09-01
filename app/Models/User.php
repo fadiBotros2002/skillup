@@ -11,6 +11,16 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
+
+
+    protected $table = 'users';
+
+    protected $primaryKey = 'userID';
+
+    public $timestamps = true;
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +30,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'roleID',
+        'activeUserID',
     ];
 
     /**
@@ -72,20 +84,26 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class, 'userID');
     }
 
-    public function users_favs()
+    public function favCourses()
     {
-        return $this->hasMany(User_Fav::class, 'userID');
+        return $this->belongsToMany(FavCourse::class, 'users_favs', 'userID', 'favCoursesID');
     }
 
 
-    public function quiz_results()
+    public function quizes()
     {
-        return $this->hasMany(QuizResult::class, 'userID');
+        return $this->belongsToMany(Quiz::class, 'quiz_results', 'userID', 'quizID');
     }
 
 
-    public function users_courses()
+    public function courses()
     {
-        return $this->hasMany(User_Course::class, 'userID');
+
+        return $this->belongsToMany(Course::class, 'users_courses', 'userID', 'courseID');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'userID', 'userID');
     }
 }

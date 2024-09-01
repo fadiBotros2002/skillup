@@ -9,15 +9,16 @@ class User_Fav extends Model
 {
     use HasFactory;
 
-    public function favsCourses()
-    {
-        return $this->belongsTo(FavCourse::class, 'favCoursesID');
-    }
+    protected $table = 'users_favs';
 
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'userID');
-    }
+    protected $primaryKey = 'userFavID';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'userID', 'favCoursesID'
+    ];
+
 
 
 }

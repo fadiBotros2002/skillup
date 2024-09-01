@@ -9,9 +9,19 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
+
+    protected $primaryKey = 'categoryID';
+
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'name',
+    ];
     public function courses()
     {
         return $this->hasMany(Course::class, 'categoryID');
     }
-
 }

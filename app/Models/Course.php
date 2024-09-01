@@ -10,6 +10,16 @@ class Course extends Model
     use HasFactory;
 
 
+     protected $table = 'courses';
+
+     protected $primaryKey = 'courseID';
+
+     public $timestamps = true;
+
+     protected $fillable = [
+         'title', 'description', 'video_url', 'categoryID', 'userID'
+     ];
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'categoryID');

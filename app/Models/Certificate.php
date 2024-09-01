@@ -9,6 +9,18 @@ class Certificate extends Model
 {
     use HasFactory;
 
+
+    protected $table = 'certificates';
+
+    protected $primaryKey = 'certificateID';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'userID', 'courseID', 'quizID', 'issued_at'
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class, 'userID');

@@ -9,6 +9,18 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $table = 'roles';
+
+
+    protected $primaryKey = 'roleID';
+
+
+    public $timestamps = true;
+
+
+    protected $fillable = [
+        'roleName',
+    ];
 
     public function users()
     {
