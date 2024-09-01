@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User_Fav extends Model
+class UserFavCat extends Model
 {
     use HasFactory;
 
-    protected $table = 'users_favs';
 
-    protected $primaryKey = 'userFavID';
-
-    public $timestamps = true;
+    protected $table = 'users_favs_cat';
+    protected $primaryKey = 'userfavID';
 
     protected $fillable = [
-        'userID', 'favCoursesID'
+        'userID',
+        'CategoryID',
     ];
 
-
+    
 
 }

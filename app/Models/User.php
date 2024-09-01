@@ -84,9 +84,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class, 'userID');
     }
 
-    public function favCourses()
+    public function categories()
     {
-        return $this->belongsToMany(FavCourse::class, 'users_favs', 'userID', 'favCoursesID');
+        return $this->belongsToMany(Category::class, 'users_favs_cat', 'userID', 'categoryID');
     }
 
 
@@ -102,7 +102,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Course::class, 'users_courses', 'userID', 'courseID');
     }
 
-    public function profile()
+    public function profiles()
     {
         return $this->hasOne(Profile::class, 'userID', 'userID');
     }

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('favCourses', function (Blueprint $table) {
-            $table->bigIncrements('favCoursesID'); //  primary key and auto-increment
+        Schema::create('users_favs_cat', function (Blueprint $table) {
+            $table->bigIncrements('userfavID'); //  primary key and auto-increment
             $table->foreignId('userID')->constrained('users', 'userID');
-            $table->foreignId('courseID')->constrained('courses', 'courseID');
+            $table->foreignId('CategoryID')->constrained('categories', 'CategoryID');
             $table->timestamps(); // created_at and updated_at
         });
     }
@@ -24,7 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('favCourses');
+        Schema::dropIfExists('users_favs_cat');
 
     }
 };

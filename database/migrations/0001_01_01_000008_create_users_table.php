@@ -17,10 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('roleID')->constrained('roles', 'roleID'); // الربط بجدول roles
-            $table->foreignId('activeUserID')->constrained('active_users', 'activeUserID');
+            $table->unsignedBigInteger('roleID')->default(3); // foreign key
+            $table->unsignedBigInteger('activeUserID')->default(1); // foreign key
             $table->rememberToken();
             $table->timestamps();
+
+            // Foreign key constraints
+            $table->foreign('roleID')->references('roleID')->on('roles')->onDelete('cascade');
+            $table->foreign('activeUserID')->references('activeUserID')->on('active_users')->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

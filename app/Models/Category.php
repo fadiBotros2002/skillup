@@ -24,4 +24,10 @@ class Category extends Model
     {
         return $this->hasMany(Course::class, 'categoryID');
     }
+
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'users_favs_cat', 'categoryID', 'userID');
+    }
 }
