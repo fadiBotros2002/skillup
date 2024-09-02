@@ -23,9 +23,10 @@ class DatabaseSeeder extends Seeder
             QuizSeeder::class,
             CertificateSeeder::class,
             CommentSeeder::class,
+            UserFavCourseSeeder::class,
             NotificationSeeder::class,
-            UserFavSeeder::class,
-
+            QuizResultSeeder::class,
+            UserCourseSeeder::class,
         ]);
 
 

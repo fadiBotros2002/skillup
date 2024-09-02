@@ -6,28 +6,32 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserFavSeeder extends Seeder
+class QuizResultSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('users_favs_cat')->insert([
+        DB::table('quiz_results')->insert([
             [
                 'userID' => 1,
-                'CategoryID' => 1,
+                'quizID' => 1,
+                'score' => 85,
+                'passed' => true,
+                'completed_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'userID' => 2,
-                'CategoryID' => 2,
+                'quizID' => 1,
+                'score' => 45,
+                'passed' => false,
+                'completed_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-
         ]);
-
     }
 }

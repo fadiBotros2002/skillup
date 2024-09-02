@@ -84,10 +84,7 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class, 'userID');
     }
 
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'users_favs_cat', 'userID', 'categoryID');
-    }
+
 
 
     public function quizes()
@@ -100,6 +97,14 @@ class User extends Authenticatable
     {
 
         return $this->belongsToMany(Course::class, 'users_courses', 'userID', 'courseID');
+    }
+
+
+    // the middle table between  users and courses (favourate course for each user)
+    public function fav_courses()
+    {
+
+        return $this->belongsToMany(Course::class, 'users_favs_courses', 'userID', 'courseID');
     }
 
     public function profiles()

@@ -46,5 +46,12 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'users_courses', 'courseID', 'userID');
 
     }
+// the middle table between  users and courses (favourate course for each user)
+    public function fav_users()
+    {
+
+        return $this->belongsToMany(User::class, 'users_favs_courses', 'courseID', 'userID');
+    }
+
 
 }

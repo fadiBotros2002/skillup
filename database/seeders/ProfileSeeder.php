@@ -15,7 +15,6 @@ class ProfileSeeder extends Seeder
     public function run(): void
     {
 
-
         DB::table('profiles')->upsert([
             [
                 'userID' => 1,
@@ -36,7 +35,6 @@ class ProfileSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ], ['userID'], ['bio', 'profile_picture', 'birthdate', 'phone', 'updated_at']);
-
 
 
     }
