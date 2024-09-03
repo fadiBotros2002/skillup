@@ -17,7 +17,7 @@ class Course extends Model
      public $timestamps = true;
 
      protected $fillable = [
-         'title', 'description', 'video_url', 'categoryID', 'userID'
+         'title', 'description', 'video_url', 'categoryID'
      ];
 
     public function category()

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description');
             $table->string('video_url');
             $table->foreignId('categoryID')->constrained('categories', 'categoryID'); // الربط بجدول categories
-            $table->foreignId('userID')->constrained('users', 'userID'); // الربط بجدول users
             $table->timestamps(); // created_at and updated_at
         });
     }
