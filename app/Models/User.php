@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -58,7 +57,15 @@ class User extends Authenticatable
         ];
     }
 
+public function isAdmin(){
 
+    return $this->roleID===1;
+}
+
+public function isUser(){
+
+    return $this->roleID===2;
+}
 
     public function role()
     {

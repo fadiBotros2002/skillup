@@ -28,11 +28,8 @@ class RoleSeeder extends Seeder
         );
         DB::table('roles')->updateOrInsert(
             ['roleID' => 2],
-            ['roleName' => 'Teacher']
-        );
-        DB::table('roles')->updateOrInsert(
-            ['roleID' => 3],
             ['roleName' => 'User']
         );
+
     }
 }

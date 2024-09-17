@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'email' => 'ahmad.doe@example.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
-            'roleID' => 3,
+            'roleID' => 2,
             'activeUserID' => 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),
@@ -40,11 +40,11 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => 'ff ',
-            'email' => 'ff@gmail.com',
+            'name' => 'admin ',
+            'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
-            'password' => '123123123',
-            'roleID' => 3,
+            'password' => Hash::make('password'),
+            'roleID' => 1,
             'activeUserID' => 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),
