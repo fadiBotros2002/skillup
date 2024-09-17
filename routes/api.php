@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Controllers\Auth\PasswordResetController;
 // Routes for authentication
 Route::post('/login', [ApiController::class, 'login']);
 Route::post('/register', [ApiController::class, 'register']);
@@ -17,6 +17,10 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::get('/logout', [ApiController::class, 'logout']);
+
+    Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLinkEmail']);
+    Route::post('/reset-password', [PasswordResetController::class, 'reset'])->name('password.reset');
+
 });
 
 // Routes for admin users
@@ -32,3 +36,6 @@ Route::middleware('api')->group(function () {
     Route::put('/courses/update/{id}', [CourseController::class, 'update']);
     Route::delete('/courses/destroy/{id}', [CourseController::class, 'destroy']);
 });
+
+
+
